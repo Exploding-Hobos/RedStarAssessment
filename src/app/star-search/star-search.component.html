@@ -1,0 +1,18 @@
+<form [formGroup]="searchStar" (ngSubmit)="onFetch()">
+
+  <label for="starsearch">Pick Something!</label>
+  <select name="starsearch" formControlName="starsearch" id='starsearch' required>
+    <option *ngFor="let starsearch of starsearches" value ="{{ starsearch.value }}">{{ starsearch.view }}</option>
+  </select>
+  
+  <label for="userInput">Now Type Something!</label>
+  <input type="text" name = "userInput" formControlName='userInput' id="userInput" required>
+ 
+  <button 
+  [disabled] = "!useBtn"
+  type="submit"
+  > {{ useBtn === false ? 'What ARE You Doing?' : 'Smash This!'}}
+</button>
+ </form>
+
+ <p>{{ _stars | json }}</p>
